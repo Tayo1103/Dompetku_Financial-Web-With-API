@@ -54,7 +54,10 @@ async function loadExpenses() {
                 <p class="font-semibold">${exp.title}</p>
                 <p>Rp ${exp.amount.toLocaleString()} - ${exp.date}</p>
             </div>
-            <button onclick="deleteExpense(${exp.id})" class="text-red-500">Hapus</button>
+            <div class="flex gap-2">
+                <button onclick='viewDetail(${JSON.stringify(exp)})' class="text-blue-500">Detail</button>
+                <button onclick="deleteExpense(${exp.id})" class="text-red-500">Hapus</button>
+            </div>
         `;
         list.appendChild(li);
     
@@ -111,5 +114,12 @@ function renderChart(labels, data, colors) {
         }
     });
 }
+
+function viewDetail(expense) {
+    // Simpan data ke localStorage sementara
+    localStorage.setItem("selectedTransaction", JSON.stringify(expense));
+    // Arahkan ke halaman detail
+    window.location.href = "detail.html";
+}  
 
 loadExpenses();
