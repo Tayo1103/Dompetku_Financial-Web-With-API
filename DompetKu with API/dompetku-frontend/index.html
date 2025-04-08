@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DompetKu | Catat & Atur Uangmu</title>
+    <meta name="description" content="DompetKu - Catat, Kelola, Hemat. Aplikasi pencatatan keuangan sederhana dan efisien.">
+    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-6xl mx-auto bg-white rounded-xl shadow p-6">
+        <div class="flex items-center">
+            <img src="images/logo.png" alt="DompetKu Logo" class="w-10 h-10 mr-2">
+            <h1 class="text-3xl font-bold">DompetKu</h1>
+        </div>
+        <p class="text-gray-600 mb-6 italic">“Catat, Kelola, Hemat. Semua dari DompetKu.”</p>        
+        <div class="mb-4">
+            <p class="text-lg">Saldo Saat Ini: <span id="balance" class="font-bold text-green-600">Rp 0</span></p>
+        </div>
+
+        <div class="mt-8">
+            <canvas id="expenseChart" height="100"></canvas>
+        </div>
+
+        <h2 class="text-xl font-bold mt-6 mb-2">Tambah Pengeluaran/Pemasukan</h2>
+
+        <form id="expense-form" class="space-y-2">
+            <input type="text" id="title" placeholder="Judul" class="w-full p-2 border rounded" required>
+            
+            <input type="number" id="amount" placeholder="Jumlah" class="w-full p-2 border rounded" required>
+            
+            <select id="type" class="w-full p-2 border rounded" required>
+                <option value="" disabled selected>Pilih Tipe</option>
+                <option value="income">Pemasukan</option>
+                <option value="expense">Pengeluaran</option>
+            </select>
+            
+            <input type="date" id="date" class="w-full p-2 border rounded" required>
+        
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Tambah</button>
+        </form>
+        
+
+        <ul id="expense-list" class="mt-6 space-y-2"></ul>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
